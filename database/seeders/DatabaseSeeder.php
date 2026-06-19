@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
                 'category_id' => $v['cat'],
                 'brand' => $v['brand'],
                 'model' => $v['model'],
-                'license_plate' => 'B ' . rand(1000, 9999) . ' ABC',
+                'license_plate' => 'B ' . (1000 + $index) . ' ABC',
                 'year' => $v['year'],
                 'price_per_day' => $v['price'],
                 'status' => 'available',

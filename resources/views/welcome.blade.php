@@ -24,13 +24,13 @@
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-600 selection:text-white">
     <!-- Navbar -->
-    <nav class="glass-nav fixed w-full z-50 transition-all duration-300">
+    <nav class="bg-white/80 backdrop-blur-md border-b border-white/20 shadow-sm fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-10">
                     <a href="{{ route('home') }}" class="flex items-center gap-2 cursor-pointer">
                         <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
-                        <span class="text-2xl font-extrabold tracking-tight text-gray-900">Rent<span class="text-blue-600">Car</span></span>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">Rent<span class="text-blue-600">Car</span></span>
                     </a>
                     
                     <div class="hidden sm:-my-px sm:flex space-x-8 h-16">
@@ -42,6 +42,16 @@
                         <x-nav-link :href="route('home')" :active="true" class="text-sm font-semibold text-gray-900">
                             Home
                         </x-nav-link>
+                        @auth
+                            @if(Auth::user()->role === 'admin')
+                                <x-nav-link :href="route('admin.vehicles.index')" :active="false" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
+                                    Manage Vehicles
+                                </x-nav-link>
+                                <x-nav-link :href="route('admin.users.index')" :active="false" class="text-sm font-semibold text-blue-600 hover:text-blue-800">
+                                    Manage Users
+                                </x-nav-link>
+                            @endif
+                        @endauth
                     </div>
                 </div>
                 <div class="flex items-center space-x-6">

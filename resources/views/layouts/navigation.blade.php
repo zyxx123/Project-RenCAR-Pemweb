@@ -19,6 +19,14 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="text-sm font-semibold">
                         {{ __('Home') }}
                     </x-nav-link>
+                    @if(Auth::check() && Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.vehicles.index')" :active="request()->routeIs('admin.vehicles.*')" class="text-sm font-semibold text-blue-600">
+                            {{ __('Manage Vehicles') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')" class="text-sm font-semibold text-blue-600">
+                            {{ __('Manage Users') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -77,6 +85,14 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')" class="font-semibold text-base">
                 {{ __('Home') }}
             </x-responsive-nav-link>
+            @if(Auth::check() && Auth::user()->role === 'admin')
+                <x-responsive-nav-link :href="route('admin.vehicles.index')" :active="request()->routeIs('admin.vehicles.*')" class="font-semibold text-base text-blue-600">
+                    {{ __('Manage Vehicles') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')" class="font-semibold text-base text-blue-600">
+                    {{ __('Manage Users') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
