@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit Vehicle') }}: {{ $vehicle->brand }} {{ $vehicle->model }}
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Edit Mobil') }}: {{ $vehicle->brand }} {{ $vehicle->model }}
         </h2>
     </x-slot>
 
@@ -25,7 +25,7 @@
                         @method('PUT')
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Brand</label>
+                                <label class="block text-sm font-medium text-gray-700">Merek</label>
                                 <input type="text" name="brand" value="{{ old('brand', $vehicle->brand) }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             
@@ -35,17 +35,17 @@
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Year</label>
+                                <label class="block text-sm font-medium text-gray-700">Tahun</label>
                                 <input type="number" name="year" value="{{ old('year', $vehicle->year) }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">License Plate</label>
+                                <label class="block text-sm font-medium text-gray-700">Plat Nomor</label>
                                 <input type="text" name="license_plate" value="{{ old('license_plate', $vehicle->license_plate) }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Category</label>
+                                <label class="block text-sm font-medium text-gray-700">Kategori</label>
                                 <select name="category_id" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ old('category_id', $vehicle->category_id) == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
@@ -54,30 +54,30 @@
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Price per Day (Rp)</label>
+                                <label class="block text-sm font-medium text-gray-700">Harga per Hari (Rp)</label>
                                 <input type="number" name="price_per_day" value="{{ old('price_per_day', $vehicle->price_per_day) }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
 
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Description</label>
+                                <label class="block text-sm font-medium text-gray-700">Deskripsi</label>
                                 <textarea name="description" rows="3" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">{{ old('description', $vehicle->description) }}</textarea>
                             </div>
 
                             <div class="md:col-span-2">
-                                <label class="block text-sm font-medium text-gray-700">Image</label>
+                                <label class="block text-sm font-medium text-gray-700">Gambar</label>
                                 @if($vehicle->image_path)
                                     <div class="mb-2">
                                         <img src="{{ asset('storage/' . $vehicle->image_path) }}" alt="Current Image" class="h-32 object-cover rounded-md">
                                     </div>
                                 @endif
                                 <input type="file" name="image" accept="image/*" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
-                                <p class="text-xs text-gray-500 mt-1">Leave empty to keep the current image.</p>
+                                <p class="text-xs text-gray-500 mt-1">Biarkan kosong untuk mempertahankan gambar saat ini.</p>
                             </div>
                         </div>
 
                         <div class="mt-6 flex justify-end">
-                            <a href="{{ route('admin.vehicles.index') }}" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md mr-2 hover:bg-gray-200">Cancel</a>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Update Vehicle</button>
+                            <a href="{{ route('admin.vehicles.index') }}" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md mr-2 hover:bg-gray-200">Batal</a>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Perbarui Mobil</button>
                         </div>
                     </form>
 

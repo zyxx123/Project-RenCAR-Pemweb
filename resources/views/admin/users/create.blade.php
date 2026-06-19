@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Add New User') }}
+        <h2 class="font-semibold text-xl text-white leading-tight">
+            {{ __('Tambah Pengguna Baru') }}
         </h2>
     </x-slot>
 
@@ -24,7 +24,7 @@
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Name</label>
+                                <label class="block text-sm font-medium text-gray-700">Nama</label>
                                 <input type="text" name="name" value="{{ old('name') }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             
@@ -34,22 +34,22 @@
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Password</label>
+                                <label class="block text-sm font-medium text-gray-700">Kata Sandi</label>
                                 <input type="password" name="password" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium text-gray-700">Role</label>
+                                <label class="block text-sm font-medium text-gray-700">Peran</label>
                                 <select name="role" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                                    <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>
+                                    <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Pelanggan</option>
                                     <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="mt-6 flex justify-end">
-                            <a href="{{ route('admin.users.index') }}" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md mr-2 hover:bg-gray-200">Cancel</a>
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Save User</button>
+                            <a href="{{ route('admin.users.index') }}" class="bg-gray-100 text-gray-800 px-4 py-2 rounded-md mr-2 hover:bg-gray-200">Batal</a>
+                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Simpan Pengguna</button>
                         </div>
                     </form>
 
