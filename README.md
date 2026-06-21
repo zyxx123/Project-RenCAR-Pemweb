@@ -1,58 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚗 Sistem Pemesanan RentCar
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi **Sistem Pemesanan RentCar** berbasis Web yang dibangun menggunakan framework **Laravel**, **Livewire**, dan **Tailwind CSS**. Aplikasi ini memungkinkan pelanggan untuk menyewa mobil secara online dan memudahkan admin dalam mengelola data kendaraan serta penyewaan.
 
-## About Laravel
+## ✨ Fitur Utama
+- **Halaman Pelanggan:** Katalog mobil (SUV, MPV, Sedan, dll) lengkap dengan detail harga dan gambar, serta fitur pemesanan mobil.
+- **Halaman Admin:** Dashboard untuk mengelola data mobil, kategori, dan transaksi penyewaan.
+- **Sistem Autentikasi:** Login dan Register untuk pengguna dengan pembagian *Role* (Admin & Customer).
+- **Responsif:** Desain UI/UX yang modern dan ramah digunakan di semua ukuran layar perangkat (HP, Tablet, Desktop).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Teknologi yang Digunakan
+- **Backend:** Laravel, PHP 8.3
+- **Frontend:** Livewire, Blade, Tailwind CSS
+- **Database:** MySQL
+- **Lainnya:** Vite (Asset Bundling)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Cara Menjalankan Project di Localhost (Laptop)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Pastikan **PHP**, **Composer**, dan **Node.js** sudah ter-install di laptop kamu.
+2. *Clone* repositori ini atau download *ZIP*-nya:
+   ```bash
+   git clone https://github.com/zyxx123/Project-RenCAR-Pemweb.git
+   ```
+3. Buka terminal di dalam folder project dan jalankan perintah instalasi berikut:
+   ```bash
+   composer install
+   npm install
+   ```
+4. Salin file konfigurasi *environment*:
+   ```bash
+   cp .env.example .env
+   ```
+5. Buka file `.env` dan atur koneksi database kamu (misal: `DB_DATABASE=rentcar`).
+6. *Generate key* untuk aplikasi:
+   ```bash
+   php artisan key:generate
+   ```
+7. *Migrate* database beserta *Seeder* (akun default):
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+8. Buat *symlink* untuk gambar / penyimpanan:
+   ```bash
+   php artisan storage:link
+   ```
+9. Terakhir, jalankan server Laravel dan Vite secara bersamaan di terminal yang berbeda:
+   ```bash
+   # Terminal 1:
+   php artisan serve
 
-## Learning Laravel
+   # Terminal 2:
+   npm run dev
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Aplikasi dapat diakses melalui browser di alamat: `http://localhost:8000`
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🔑 Akun Default (Seeder)
+Kamu bisa menggunakan akun ini untuk login:
+- **Admin** 👉 Email: `admin@rentcar.com` | Password: `password`
+- **Customer** 👉 Email: `customer@rentcar.com` | Password: `password`
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+*Dibuat untuk tugas/project mata kuliah Pemrograman Web - Informatika UNJEDIR.*
